@@ -1,0 +1,60 @@
+﻿@using Web.DataAccess
+@model List<CMSNavigation>
+
+<div class="left_col scroll-view">
+    <div class="navbar nav_title" style="border: 0;">
+        <a href="/" class="site_title"><i class="fa fa-globe"></i> <span>SRIKANDI</span></a>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- sidebar menu -->
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                <li>
+                    <a href="/"><i class="fa fa-home"></i> Dashboard</a>
+                </li>
+
+                @if (Model.Any())
+                {
+                    foreach (CMSNavigation nav in Model.Where(x => !x.IsChild && !x.IsHide))
+                    {
+                        List<CMSNavigation> listChild = Model.Where(x => x.ParentID == nav.ID && !x.IsHide).ToList();
+
+                        <li>
+                            <a href="@(nav.Controller == "#" ? "#" : Url.Action("Index", nav.Controller))">
+                                <i class="fa fa-arrow-circle-o-right"></i>
+                                @nav.Name
+                                @if (listChild.Any())
+                                {
+                                    <span class="fa fa-chevron-down"></span>
+                                }
+                            </a>
+
+                            @if (listChild.Any())
+                            {
+                                <ul class="nav child_menu">
+
+
+                                    @foreach (CMSNavigation childNav in listChild)
+                                    {
+                                        var grandChild = Model.Where(x => x.ParentID == childNav.ID && !x.IsHide).ToList();
+                                        <li>
+                                            <a href="@(childNav.Controller == "#"? "#":Url.Action("Index", childNav.Controller))">
+                                                @childNav.Name
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+
+    </div>
+    <!-- /sidebar menu -->
+</div>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SRIKANDI | </title>
+
+    <!-- Bootstrap -->
+    <link href="@Links.vendors.bootstrap.dist.css.bootstrap_min_css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="@Links.vendors.font_awesome.css.font_awesome_min_css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="@Links.vendors.nprogress.nprogress_css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="@Links.vendors.bootstrap_progressbar.css.bootstrap_progressbar_3_3_4_min_css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="@Links.vendors.bootstrap_daterangepicker.daterangepicker_css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/Assets/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col menu_fixed">
+                @{Html.RenderAction(MVC.Widget.Navigation());}
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                @{Html.RenderAction(MVC.Widget.TopNavigationBar());}
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                @RenderBody()
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    SRIKANDI - Mandiri Axa General Insurance @DateTime.Now.Year
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="@Links.vendors.jquery.dist.jquery_min_js"></script>
+    <!-- Bootstrap -->
+    <script src="@Links.vendors.bootstrap.dist.js.bootstrap_min_js"></script>
+    <!-- FastClick -->
+    <script src="@Links.vendors.fastclick.lib.fastclick_js"></script>
+    <!-- NProgress -->
+    <script src="@Links.vendors.nprogress.nprogress_js"></script>
+    <!-- Chart.js -->
+    <script src="@Links.vendors.Chart_js.dist.Chart_min_js"></script>
+    <!-- gauge.js -->
+    <script src="@Links.vendors.gauge_js.dist.gauge_min_js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="@Links.vendors.bootstrap_progressbar.bootstrap_progressbar_min_js"></script>
+    <!-- iCheck -->
+    <script src="@Links.vendors.iCheck.icheck_min_js"></script>
+    <!-- Skycons -->
+    <script src="@Links.vendors.skycons.skycons_js"></script>
+    <!-- Flot -->
+    <script src="@Links.vendors.Flot.jquery_flot_js"></script>
+    <script src="@Links.vendors.Flot.jquery_flot_pie_js"></script>
+    <script src="@Links.vendors.Flot.jquery_flot_time_js"></script>
+    <script src="@Links.vendors.Flot.jquery_flot_stack_js"></script>
+    <script src="@Links.vendors.Flot.jquery_flot_resize_js"></script>
+    <!-- Flot plugins -->
+    <script src="@Links.vendors.flot_orderbars.js.jquery_flot_orderBars_js"></script>
+    <script src="@Links.vendors.flot_spline.js.jquery_flot_spline_min_js"></script>
+    <script src="@Links.vendors.flot_curvedlines.curvedLines_js"></script>
+    <!-- DateJS -->
+    <script src="@Links.vendors.DateJS.build.date_js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="@Links.vendors.moment.min.moment_min_js"></script>
+    <script src="@Links.vendors.bootstrap_daterangepicker.daterangepicker_js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/Assets/custom.js"></script>
+
+</body>
+</html>

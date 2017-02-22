@@ -1,0 +1,63 @@
+﻿@model  Srikandi.Models.UserLoginModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Log in";
+
+}
+
+<div>
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
+
+                @if (!Html.ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <i class="fa fa-times-circle"></i>
+                        Error occured: <br />
+                        @Html.ValidationSummary()
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(ViewBag.Success))
+                {
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <i class="fa fa-check-circle"></i>
+                        @ViewBag.Success
+                    </div>
+                }
+
+                @using (Html.BeginForm(MVC.Account.Login(), FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <h1>Login Form</h1>
+                    <div>
+                        @Html.TextBoxFor(m => m.Username, new { placeholder = "Username", @class = "form-control", required = "" })
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "form-control", required = "" })
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-default submit">Log in</button>
+                        <a class="reset_pass" href="#">Lost your password?</a>
+                    </div>
+
+                    
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <div>
+                            <h1><i class="fa fa-paw"></i> MAGI | SRIKANDI</h1>
+                            <p>©@DateTime.Now.Year All Rights Reserved. Mandiri Axa General Insurance. Privacy and Terms</p>
+                        </div>
+                    </div>
+                }                
+            </section>
+        </div>
+    </div>
+</div>
